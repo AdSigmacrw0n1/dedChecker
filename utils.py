@@ -7,6 +7,7 @@ import uuid
 import traceback
 import hashlib
 import hmac
+from urllib.parse import quote
 from datetime import datetime, timedelta, timezone
 from io import BytesIO
 from typing import Dict, Any, List, Optional, Set
@@ -309,7 +310,7 @@ def load_proxies(file_path: str) -> List[str]:
                         logging.warning(f"Прокси строка {line_num}: неверный порт '{port}' — пропущено: {line}")
                         continue
                     
-                    proxy_url = f"http://{username}:{password}@{ip}:{port}"
+                    proxy_url = f"http://{quote(username, safe='')}:{quote(password, safe='')}@{ip}:{port}"
                 
                 # Формат 2 и 3: ip:port@login:password (с возможными дополнительными символами после пароля)
                 elif '@' in line:
@@ -341,7 +342,7 @@ def load_proxies(file_path: str) -> List[str]:
                         logging.warning(f"Прокси строка {line_num}: неверный порт '{port}' — пропущено: {line}")
                         continue
                     
-                    proxy_url = f"http://{username}:{password}@{ip}:{port}"
+                    proxy_url = f"http://{quote(username, safe='')}:{quote(password, safe='')}@{ip}:{port}"
                 
                 else:
                     logging.warning(f"Прокси строка {line_num}: неподдерживаемый формат — пропущено: {line}")

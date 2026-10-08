@@ -1,6 +1,7 @@
 import asyncio
 import itertools
 from collections import defaultdict
+from urllib.parse import quote
 import json
 import logging
 import os
@@ -2909,16 +2910,16 @@ class CookieProcessor:
         return None
     
     FRESHER_PROXY = [
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10001",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10002",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10003",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10004",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10005",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10006",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10007",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10008",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10009",
-        "http://spqac6e5ix:n0pMjdOMA04=a7tnxi@dc.decodo.com:10010",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10001",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10002",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10003",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10004",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10005",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10006",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10007",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10008",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10009",
+        "http://spqac6e5ix:n0pMjdOMA04%3Da7tnxi@dc.decodo.com:10010",
     ]
 
     async def fresh_cookie_batch(self, cookies: List[str], progress_callback=None) -> List[str]:
